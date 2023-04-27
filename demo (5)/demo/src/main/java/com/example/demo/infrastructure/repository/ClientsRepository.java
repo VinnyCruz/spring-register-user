@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface ClientsRepository extends JpaRepository<Client, Long> {
-    public ClientDto findByCpf(String cpf);
+    public Optional<Client> findByCpf(String cpf);
     @Override
     Optional<Client> findById(Long id);
 

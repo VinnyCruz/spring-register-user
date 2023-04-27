@@ -32,13 +32,13 @@ public class ClientsController {
     }
 
     @GetMapping("search/cpf/{cpf}")
-    ResponseEntity<ClientDto> findClientByCpf(@PathVariable String cpf) {
-        ClientDto clientBeenSearch = searchClient.findClientByCpf(cpf);
+    ResponseEntity<Optional<Client>> findClientByCpf(@PathVariable String cpf) {
+        Optional<Client> clientBeenSearch = searchClient.findClientByCpf(cpf);
         return ResponseEntity.ok(clientBeenSearch);
     }
 
     @GetMapping("search/id")
-    ResponseEntity<Optional<Client>> findClientById(@RequestBody Long id) {
+    ResponseEntity<Optional<Client>> findClientById(@PathVariable Long id) {
     return ResponseEntity.status(HttpStatus.FOUND).body(searchClient.findClientById(id));
     }
 }

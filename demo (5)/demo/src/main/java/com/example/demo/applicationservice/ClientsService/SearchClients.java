@@ -17,7 +17,7 @@ public class SearchClients {
         return clientRepository.findAll();
     }
 
-    public ClientDto findClientByCpf(String cpf) {
+    public Optional<Client> findClientByCpf(String cpf) {
         return clientRepository.findByCpf(cpf);
     }
 
